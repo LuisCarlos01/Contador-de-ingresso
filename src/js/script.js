@@ -27,7 +27,7 @@ function incrementCounter() {
     count++;
     saveToLocalStorage();
     updateDisplay();
-    if (count === 1000) {
+    if (count === 500) {
         launchConfetti();
     }
 }
@@ -35,9 +35,9 @@ function incrementCounter() {
 // Lança confetes
 function launchConfetti() {
     confetti({
-        particleCount: 100,
+        particleCount: 150,
         spread: 70,
-        origin: { y: 0.6 },
+        origin: { y: 0.5 },
         colors: ['#ff5673', '#ff9d56', '#ffd1a3']
     });
 }
