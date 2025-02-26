@@ -3,38 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador iPass</title>
-    <link rel="stylesheet" href="/src/css/style.css"> <!-- Vincula o CSS externo -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> <!-- Biblioteca de confete -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <meta name="description" content="Contador iPass - STL Festival">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>Contador iPass | STL Festival</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" defer></script>
+    
+    <!-- Adicionar Meta Tags para SEO e segurança -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' data: https:;">
+    
+    <!-- Scripts -->
+    <script src="js/config.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/script.js" defer></script>
+    
+    <!-- Melhorar SEO e acessibilidade -->
+    <meta name="author" content="STL Festival">
+    <meta name="keywords" content="iPass, contador, STL Festival, ingressos">
+    <link rel="canonical" href="https://seusite.com/contador-ipass">
+    
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="img/Ipass_logo.png" as="image">
+    
+    <!-- Adicionar fallback para Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
 </head>
 <body>
-    <!-- Logo da iPass -->
-    <div class="logo">
-        <img src="img/Ipass_logo.png" alt="Logo iPass"> <!-- Certifique-se de ter o logo nesta pasta -->
-    </div>
-
-    <div class="container">
-        <h1>Contador iPass</h1>
-        <div class="contador">
-            <div id="digit1">0</div>
-            <div id="digit2">0</div>
-            <div id="digit3">0</div>
-            <div id="digit4">0</div>
+    <header role="banner">
+        <div class="logo">
+            <img src="img/Ipass_logo.png" alt="Logo iPass" width="150" height="50">
         </div>
-        <button id="incrementBtn">Incrementar</button>
-        <button id="editBtn">Editar Contador</button>
-    </div>
+    </header>
 
-    <footer>
-        <p>© 2025 STL Festival</p>
+    <main class="container" role="main">
+        <h1>Contador iPass</h1>
+        <div id="statusConnection" class="status-connection">
+            Status: <span id="connectionStatus">Desconectado</span>
+        </div>
+        <div class="contador" aria-label="Display do contador">
+            <div class="digit" id="digit1" role="presentation">0</div>
+            <div class="digit" id="digit2" role="presentation">0</div>
+            <div class="digit" id="digit3" role="presentation">0</div>
+            <div class="digit" id="digit4" role="presentation">0</div>
+        </div>
+        <div class="buttons" role="group" aria-label="Controles do contador">
+            <button id="incrementBtn" class="btn" aria-label="Incrementar contador">
+                <i class="fas fa-plus"></i> Incrementar
+            </button>
+            <button id="editBtn" class="btn" aria-label="Editar contador">
+                <i class="fas fa-edit"></i> Editar
+            </button>
+            <button id="syncBtn" class="btn" aria-label="Sincronizar dados">
+                <i class="fas fa-sync"></i> Sincronizar
+            </button>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 STL Festival</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/stlfestival/" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/stlfestival/" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="Siga-nos no Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
         </div>
     </footer>
-
-    <script src="/src/js/script.js"></script> <!-- Vincula o JS externo -->
 </body>
 </html>
